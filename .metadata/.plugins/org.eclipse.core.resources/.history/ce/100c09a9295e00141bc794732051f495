@@ -24,19 +24,19 @@
         android:layout_height="wrap_content"
         android:text="@string/near_you_btn"
         android:layout_gravity="center" 
-        android:textSize="20sp"/>
+        android:textSize="20dp"/>
     
     <Button
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:text="@string/all_events_btn"
         android:layout_gravity="center" 
-        android:textSize="20sp"/>
+        android:textSize="20dp"/>
     
     <Button
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:text="@string/add_event_btn"
         android:layout_gravity="center" 
-        android:textSize="20sp"/>
+        android:textSize="20dp"/>
 </LinearLayout>

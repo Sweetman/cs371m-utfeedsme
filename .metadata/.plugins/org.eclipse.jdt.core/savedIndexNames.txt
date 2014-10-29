@@ -1,7 +1,3 @@
 INDEX VERSION 1.126+/Users/James/Documents/UT 3rd Year/cs 371m/utfeedsme/.metadata/.plugins/org.eclipse.jdt.core
 1044735982.index
-1905650324.index
-373478708.index
-4019296118.index
-1887947031.index
-12189051.index
+350677172.index

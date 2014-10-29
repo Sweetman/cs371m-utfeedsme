@@ -13,10 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="Placeholder" key="selection"/>
+		<item value="setOnClick" key="selection"/>
 		<list key="findhistory">
-			<item value="placeholder"/>
-			<item value="o"/>
+			<item value="setonclick"/>
+			<item value="Intent"/>
+			<item value="intent"/>
+			<item value="sendmess"/>
+			<item value="sendm"/>
+			<item value="send"/>
+			<item value="sendMessage"/>
+			<item value="sendmessage"/>
 		</list>
 		<list key="replacehistory">
 		</list>

@@ -11,24 +11,34 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.os.Build;
 
-
+import java.util.List;
+import java.util.Random;
 
 public class StartScreen extends Activity {
-
+	
+	protected RecordsDataSource dataSource;
+		
 	Button happening_now_btn, near_you_btn, all_events_btn, add_event_btn;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_screen);
+        
+       // final StartScreen thisActivity = this;
+        
+        dataSource = new RecordsDataSource(this);
+        dataSource.open();
+        
         happening_now_btn = (Button) findViewById(R.id.happening_now);
         near_you_btn = (Button) findViewById(R.id.near_you);
         all_events_btn = (Button) findViewById(R.id.all_events);
         add_event_btn = (Button) findViewById(R.id.add_event);
-
+        
         happening_now_btn.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				Intent openHappeningNow = new Intent("com.example.utfeedsme.HAPPENINGNOW");
@@ -56,6 +66,7 @@ public class StartScreen extends Activity {
 				startActivity(openNearYou);
 			}
 		});
+
     }
 
     @Override
@@ -75,5 +86,18 @@ public class StartScreen extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    
+
+    @Override
+    protected void onResume() {
+      dataSource.open();
+      super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+      dataSource.close();
+      super.onPause();
     }
 }

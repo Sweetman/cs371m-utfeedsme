@@ -1,13 +1,37 @@
 package com.example.utfeedsme;
 
-import android.app.Activity;
+/*
+ * Database code derived from Lars Vogel
+ * http://www.vogella.com/tutorials/AndroidSQLite/article.html
+ */
+
 import android.os.Bundle;
 
-public class AllEvents extends Activity {
+import java.util.List;
+import java.util.Random;
 
+import android.app.ListActivity;
+import android.view.View;
+import android.widget.ArrayAdapter;
+
+public class AllEvents extends ListActivity {
+	
+	protected RecordsDataSource dataSource;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.all_events);
+		
+		dataSource = new RecordsDataSource(this);
+        dataSource.open();
+		
+		List<Record> values = dataSource.getAllRecords();
+
+	    // use the SimpleCursorAdapter to show the
+	    // elements in a ListView
+	    ArrayAdapter<Record> adapter = new ArrayAdapter<Record>(this,
+	        android.R.layout.simple_list_item_1, values);
+	    setListAdapter(adapter);
 	}
 }

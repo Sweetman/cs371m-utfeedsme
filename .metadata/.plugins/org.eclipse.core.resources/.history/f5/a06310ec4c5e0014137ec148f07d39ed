@@ -1,7 +1,0 @@
-package com.example.utfeedsme;
-
-import android.app.Activity;
-
-public class NearYou extends Activity {
-
-}

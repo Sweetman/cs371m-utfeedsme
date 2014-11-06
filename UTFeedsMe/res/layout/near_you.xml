@@ -4,11 +4,56 @@
     android:layout_height="match_parent"
     android:orientation="vertical" 
     android:background="#BF5700">
-    <TextView
+    <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textSize="20sp"
-        android:layout_gravity="center"
-        android:gravity="center"/>
+        android:layout_height="wrap_content" >
+        
+	    <TextView
+	        android:id="@+id/name"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/app_name"
+	        android:textSize="20sp"
+	        android:layout_gravity="center"
+	        android:gravity="center"/>
+	    
+	    <TextView
+	        android:id="@+id/duration"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/name"
+	        android:text="@string/duration_label"
+	        android:textSize="15sp"
+	        android:layout_gravity="left"
+	        android:gravity="left"/>
+	    
+	    <TextView
+	        android:id="@+id/location"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/name"
+	        android:text="@string/location_label"
+	        android:textSize="15sp"
+	        android:layout_gravity="center"
+	        android:gravity="center"/>
+	    
+	    <TextView
+	        android:id="@+id/cuisine"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/name"
+	        android:text="@string/cuisine_label"
+	        android:textSize="15sp"
+	        android:layout_gravity="right"
+	        android:gravity="right"/>
+	    
+	    <ListView
+	        android:id="@android:id/list"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/location"
+	        android:text="@string/hello_world" />
+	    
+	    </RelativeLayout>
+    
 </LinearLayout>

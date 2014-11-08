@@ -18,6 +18,9 @@ import android.os.Build;
 import java.util.List;
 import java.util.Random;
 
+import com.parse.Parse;
+import com.parse.ParseObject;
+
 public class StartScreen extends Activity {
 	
 	protected RecordsDataSource dataSource;
@@ -30,7 +33,10 @@ public class StartScreen extends Activity {
         setContentView(R.layout.activity_start_screen);
         
        // final StartScreen thisActivity = this;
-        
+        Parse.initialize(this, "vdhZN2rmjBYhLJFlFK8NRFW0wKZHQ3CDNMEkwAWy", "5J5WzJDG8FR95pmI9eN1HTOCtbcBktoz9B6yRNo4");
+        ParseObject testObject = new ParseObject("TestObject");
+        testObject.put("foo", "bar");
+        testObject.saveInBackground();
         dataSource = new RecordsDataSource(this);
         dataSource.open();
         

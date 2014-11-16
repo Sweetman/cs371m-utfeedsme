@@ -10,6 +10,10 @@ import android.os.Bundle;
 import java.util.List;
 import java.util.Random;
 
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseQueryAdapter;
+
 import android.app.ListActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -22,16 +26,9 @@ public class AllEvents extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.all_events);
-		
-		dataSource = new RecordsDataSource(this);
-        dataSource.open();
-		
-		List<Record> values = dataSource.getAllRecords();
-
-	    // use the SimpleCursorAdapter to show the
-	    // elements in a ListView
-	    ArrayAdapter<Record> adapter = new ArrayAdapter<Record>(this,
-	        android.R.layout.simple_list_item_1, values);
-	    setListAdapter(adapter);
+		ParseQueryAdapter<ParseObject> mainAdapter = new ParseQueryAdapter<ParseObject>(this, "FoodEvent");
+		mainAdapter.setTextKey("event");
+		System.out.println("hello");
+		setListAdapter(mainAdapter);
 	}
 }

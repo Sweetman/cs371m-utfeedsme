@@ -69,6 +69,7 @@ public class StartScreen extends Activity {
         add_event_btn.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				Intent openNearYou = new Intent("com.example.utfeedsme.ADDEVENT");
+				Log.v("addevent", "yoooo we pressed the add event button");
 				startActivity(openNearYou);
 			}
 		});

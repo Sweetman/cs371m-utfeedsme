@@ -15,7 +15,7 @@
     <Button
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="@string/happening_now_btn"
+        android:text="@string/happening_now"
         android:layout_gravity="center" 
         android:textSize="20sp"
         android:id="@+id/happening_now"/>
@@ -23,7 +23,7 @@
     <Button
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="@string/near_you_btn"
+        android:text="@string/near_you"
         android:layout_gravity="center" 
         android:textSize="20sp"
         android:id="@+id/near_you"/>
@@ -31,7 +31,7 @@
     <Button
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="@string/all_events_btn"
+        android:text="@string/all_events"
         android:layout_gravity="center" 
         android:textSize="20sp"
         android:id="@+id/all_events"/>
@@ -39,7 +39,7 @@
     <Button
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="@string/add_event_btn"
+        android:text="@string/add_event"
         android:layout_gravity="center" 
         android:textSize="20sp"
         android:id="@+id/add_event"/>

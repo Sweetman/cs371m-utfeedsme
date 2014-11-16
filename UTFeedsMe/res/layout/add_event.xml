@@ -4,56 +4,49 @@
     android:layout_height="match_parent"
     android:orientation="vertical" 
     android:background="#BF5700">
-    <RelativeLayout
+    
+    <TextView 
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
-        
-	    <TextView
-	        android:id="@+id/name"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/app_name"
-	        android:textSize="20sp"
-	        android:layout_gravity="center"
-	        android:gravity="center"/>
-	    
-	    <TextView
-	        android:id="@+id/duration"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/name"
-	        android:text="@string/duration_label"
-	        android:textSize="15sp"
-	        android:layout_gravity="left"
-	        android:gravity="left"/>
-	    
-	    <TextView
-	        android:id="@+id/location"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/name"
-	        android:text="@string/location_label"
-	        android:textSize="15sp"
-	        android:layout_gravity="center"
-	        android:gravity="center"/>
-	    
-	    <TextView
-	        android:id="@+id/cuisine"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/name"
-	        android:text="@string/cuisine_label"
-	        android:textSize="15sp"
-	        android:layout_gravity="center"
-	        android:gravity="right"/>
-	    
-	    <ListView
-	        android:id="@android:id/list"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/location"
-	        android:text="@string/hello_world" />
-	    
-	    </RelativeLayout>
+        android:layout_height="wrap_content"
+        android:text="@string/add_event"
+        android:gravity="center"
+        android:textSize="30sp"/>
+    
+    <EditText 
+        android:id="@+id/add_event_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/event_name_hint"
+        android:layout_margin="10dp"
+        />
+    <EditText 
+        android:id="@+id/add_event_where"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/event_where_hint"
+        android:layout_margin="10dp"
+        />
+    <EditText 
+        android:id="@+id/add_event_time"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/event_time_hint"
+        android:layout_margin="10dp"
+        />
+    <EditText 
+        android:id="@+id/add_event_food"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/event_food_hint"
+        android:layout_margin="10dp"
+        />
+    
+    <Button 
+        android:id="@+id/add_event_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_event_btn_text"
+        android:layout_gravity="center"/>
+    
     
 </LinearLayout>

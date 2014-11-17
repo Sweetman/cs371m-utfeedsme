@@ -23,7 +23,7 @@ import com.parse.ParseObject;
 
 public class StartScreen extends Activity {
 	
-	protected RecordsDataSource dataSource;
+//	protected RecordsDataSource dataSource;
 		
 	Button happening_now_btn, near_you_btn, all_events_btn, add_event_btn;
 	
@@ -34,11 +34,11 @@ public class StartScreen extends Activity {
         
        // final StartScreen thisActivity = this;
         Parse.initialize(this, "vdhZN2rmjBYhLJFlFK8NRFW0wKZHQ3CDNMEkwAWy", "5J5WzJDG8FR95pmI9eN1HTOCtbcBktoz9B6yRNo4");
-        ParseObject testObject = new ParseObject("TestObject");
-        testObject.put("foo", "bar");
-        testObject.saveInBackground();
-        dataSource = new RecordsDataSource(this);
-        dataSource.open();
+//        ParseObject testObject = new ParseObject("TestObject");
+//        testObject.put("foo", "bar");
+//        testObject.saveInBackground();
+//        dataSource = new RecordsDataSource(this);
+//        dataSource.open();
         
         happening_now_btn = (Button) findViewById(R.id.happening_now);
         near_you_btn = (Button) findViewById(R.id.near_you);
@@ -98,13 +98,13 @@ public class StartScreen extends Activity {
 
     @Override
     protected void onResume() {
-      dataSource.open();
+//      dataSource.open();
       super.onResume();
     }
 
     @Override
     protected void onPause() {
-      dataSource.close();
+//      dataSource.close();
       super.onPause();
     }
 }

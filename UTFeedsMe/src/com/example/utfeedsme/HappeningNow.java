@@ -16,22 +16,22 @@ import android.widget.Button;
 
 public class HappeningNow extends ListActivity {
 	
-	protected RecordsDataSource dataSource;
+//	protected RecordsDataSource dataSource;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.happening_now);
 		
-        dataSource = new RecordsDataSource(this);
-        dataSource.open();
-		
-		List<Record> values = dataSource.getTimeRecords();
-
-	    // use the SimpleCursorAdapter to show the
-	    // elements in a ListView
-	    ArrayAdapter<Record> adapter = new ArrayAdapter<Record>(this,
-	        android.R.layout.simple_list_item_1, values);
-	    setListAdapter(adapter);
+//        dataSource = new RecordsDataSource(this);
+//        dataSource.open();
+//		
+//		List<Record> values = dataSource.getTimeRecords();
+//
+//	    // use the SimpleCursorAdapter to show the
+//	    // elements in a ListView
+//	    ArrayAdapter<Record> adapter = new ArrayAdapter<Record>(this,
+//	        android.R.layout.simple_list_item_1, values);
+//	    setListAdapter(adapter);
 	}
 }

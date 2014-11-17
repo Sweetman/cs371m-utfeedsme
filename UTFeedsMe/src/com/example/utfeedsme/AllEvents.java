@@ -20,15 +20,12 @@ import android.widget.ArrayAdapter;
 
 public class AllEvents extends ListActivity {
 	
-	protected RecordsDataSource dataSource;
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.all_events);
 		ParseQueryAdapter<ParseObject> mainAdapter = new ParseQueryAdapter<ParseObject>(this, "FoodEvent");
 		mainAdapter.setTextKey("event");
-		System.out.println("hello");
 		setListAdapter(mainAdapter);
 	}
 }

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" 
-    android:background="#BF5700">
+    android:background="#FFFFFF">
     
     <TextView 
         android:layout_width="fill_parent"
@@ -26,7 +26,7 @@
         android:hint="@string/event_where_hint"
         android:layout_margin="10dp"
         />
-    <EditText 
+    <Button 
         android:id="@+id/add_event_time"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

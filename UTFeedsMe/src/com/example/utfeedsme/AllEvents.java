@@ -5,15 +5,11 @@ package com.example.utfeedsme;
  * http://www.vogella.com/tutorials/AndroidSQLite/article.html
  */
 
-import java.util.List;
-
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
-import com.parse.FindCallback;
-import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
@@ -22,7 +18,7 @@ public class AllEvents extends ListActivity {
 	
 	private final static String TAG = "AllEvents";
 	
-	private static final int DIALOG_SORT = 0;
+	//private static final int DIALOG_SORT = 0;
 	protected RecordsDataSource dataSource;
 	
 	@Override
@@ -32,8 +28,8 @@ public class AllEvents extends ListActivity {
 		
 		 ParseQueryAdapter.QueryFactory<ParseObject> factory =
 			     new ParseQueryAdapter.QueryFactory<ParseObject>() {
-			       public ParseQuery create() {
-			         ParseQuery query = new ParseQuery("FoodEvent");
+			       public ParseQuery<ParseObject> create() {
+			         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("FoodEvent");
 			         query.orderByAscending("event");
 			         return query;
 			       }
@@ -57,7 +53,7 @@ public class AllEvents extends ListActivity {
         }
         if (id == R.id.sort_pref) {
         	Log.d(TAG, "selected to sort");
-        	showDialog(DIALOG_SORT);
+        	//showDialog(DIALOG_SORT);
         	return true;
         }
         return super.onOptionsItemSelected(item);

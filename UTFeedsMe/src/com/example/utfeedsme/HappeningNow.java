@@ -7,31 +7,32 @@ package com.example.utfeedsme;
 
 import java.util.List;
 
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseQueryAdapter;
+
 import android.app.ListActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
-import android.content.Intent;
-import android.widget.Button;
 
 public class HappeningNow extends ListActivity {
-	
-	protected RecordsDataSource dataSource;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.happening_now);
 		
-        dataSource = new RecordsDataSource(this);
-        dataSource.open();
-		
-		List<Record> values = dataSource.getTimeRecords();
+		 ParseQueryAdapter.QueryFactory<ParseObject> factory =
+			     new ParseQueryAdapter.QueryFactory<ParseObject>() {
+			       public ParseQuery<ParseObject> create() {
+			         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("FoodEvent");
+			         query.orderByAscending("event");
+			         return query;
+			       }
+			     };
 
-	    // use the SimpleCursorAdapter to show the
-	    // elements in a ListView
-	    ArrayAdapter<Record> adapter = new ArrayAdapter<Record>(this,
-	        android.R.layout.simple_list_item_1, values);
-	    setListAdapter(adapter);
+		ParseQueryAdapter<ParseObject> mainAdapter = new ParseQueryAdapter<ParseObject>(this, factory);
+		mainAdapter.setTextKey("event");
+		setListAdapter(mainAdapter);
 	}
 }

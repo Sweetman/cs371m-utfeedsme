@@ -10,7 +10,8 @@
         android:layout_height="wrap_content"
         android:text="@string/add_event"
         android:gravity="center"
-        android:textSize="30sp"/>
+        android:textSize="30sp"
+        android:textColor="#FFFFFF"/>
     
     <EditText 
         android:id="@+id/add_event_name"
@@ -26,13 +27,13 @@
         android:hint="@string/event_where_hint"
         android:layout_margin="10dp"
         />
-    <EditText 
-        android:id="@+id/add_event_time"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/event_time_hint"
-        android:layout_margin="10dp"
-        />
+    <Button
+		android:id="@+id/add_event_time"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:hint="@string/event_time_hint"
+		android:layout_margin="10dp"
+		/>
     <EditText 
         android:id="@+id/add_event_food"
         android:layout_width="fill_parent"
@@ -46,7 +47,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_event_btn_text"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:background="#FFFFFF"/>
     
     
 </LinearLayout>

@@ -28,7 +28,7 @@
         android:id="@+id/created"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Developed by: " 
+        android:text="@string/develop" 
         android:textColor="#FFFFFF"
         android:layout_below="@+id/app_name"
     	android:layout_marginLeft="20dp" 

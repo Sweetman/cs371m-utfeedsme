@@ -18,6 +18,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="@string/event_name_hint"
+        android:maxLines="1"
+        android:maxLength="10"
         android:layout_margin="10dp"
         />
     <EditText 
@@ -25,13 +27,29 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="@string/event_where_hint"
+                android:maxLines="1"
+        android:maxLength="10"
         android:layout_margin="10dp"
         />
-    <Button
-		android:id="@+id/add_event_time"
+     <Button
+		android:id="@+id/add_event_date"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-		android:hint="@string/event_time_hint"
+		android:hint="@string/event_date_hint"
+		android:layout_margin="10dp"
+		/>
+    <Button
+		android:id="@+id/add_event_start_time"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:hint="@string/event_start_time_hint"
+		android:layout_margin="10dp"
+		/>
+     <Button
+		android:id="@+id/add_event_end_time"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:hint="@string/event_end_time_hint"
 		android:layout_margin="10dp"
 		/>
     <EditText 

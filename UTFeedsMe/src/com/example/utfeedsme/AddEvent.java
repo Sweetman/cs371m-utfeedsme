@@ -36,6 +36,7 @@ public class AddEvent extends FragmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		Log.v("addevent", "entered oncreate for addevent");
+		Log.d(TAG, "alsjdlahsdjvhasjhgas");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add_event);
 		
@@ -106,8 +107,11 @@ public class AddEvent extends FragmentActivity {
 	implements TimePickerDialog.OnTimeSetListener {
 
 		int buttonId;
+		
+		
 
 		public TimePickerFragment (int i) {
+			super();
 			buttonId = i;
 		}
 
@@ -145,6 +149,10 @@ public class AddEvent extends FragmentActivity {
 
 	public class DatePickerFragment extends DialogFragment
 	implements DatePickerDialog.OnDateSetListener {
+		
+		public DatePickerFragment() {
+			super();
+		}
 
 		@Override
 		public Dialog onCreateDialog(Bundle savedInstanceState) {

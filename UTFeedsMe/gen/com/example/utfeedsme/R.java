@@ -34,28 +34,29 @@ public final class R {
         public static final int pressed=0x7f020009;
     }
     public static final class id {
-        public static final int action_settings=0x7f080014;
+        public static final int action_settings=0x7f080015;
         public static final int add_event=0x7f080007;
-        public static final int add_event_btn=0x7f08000d;
-        public static final int add_event_food=0x7f08000c;
+        public static final int add_event_btn=0x7f08000e;
+        public static final int add_event_end_time=0x7f08000c;
+        public static final int add_event_food=0x7f08000d;
         public static final int add_event_name=0x7f080009;
-        public static final int add_event_time=0x7f08000b;
+        public static final int add_event_start_time=0x7f08000b;
         public static final int add_event_where=0x7f08000a;
         public static final int add_text=0x7f080008;
         public static final int all_events=0x7f080005;
         public static final int all_text=0x7f080006;
-        public static final int andre=0x7f080013;
-        public static final int app_name=0x7f08000e;
-        public static final int created=0x7f080010;
-        public static final int daniel=0x7f080012;
+        public static final int andre=0x7f080014;
+        public static final int app_name=0x7f08000f;
+        public static final int created=0x7f080011;
+        public static final int daniel=0x7f080013;
         public static final int happening_now=0x7f080001;
         public static final int happening_text=0x7f080002;
-        public static final int imgLogo=0x7f08000f;
-        public static final int james=0x7f080011;
+        public static final int imgLogo=0x7f080010;
+        public static final int james=0x7f080012;
         public static final int name=0x7f080000;
         public static final int near_text=0x7f080004;
         public static final int near_you=0x7f080003;
-        public static final int sort_pref=0x7f080015;
+        public static final int sort_pref=0x7f080016;
     }
     public static final class layout {
         public static final int activity_start_screen=0x7f030000;
@@ -73,11 +74,12 @@ public final class R {
         public static final int add_event=0x7f050006;
         public static final int add_event_btn_text=0x7f05000e;
         public static final int all_events=0x7f050005;
-        public static final int andre=0x7f050018;
+        public static final int andre=0x7f050019;
         public static final int app_name=0x7f050000;
         public static final int cuisine_label=0x7f050009;
-        public static final int daniel=0x7f050017;
+        public static final int daniel=0x7f050018;
         public static final int desc=0x7f05000f;
+        public static final int develop=0x7f050016;
         public static final int duration_label=0x7f050007;
         public static final int event_food_hint=0x7f05000d;
         public static final int event_name_hint=0x7f05000a;
@@ -85,7 +87,7 @@ public final class R {
         public static final int event_where_hint=0x7f05000b;
         public static final int happening_now=0x7f050003;
         public static final int hello_world=0x7f050001;
-        public static final int james=0x7f050016;
+        public static final int james=0x7f050017;
         public static final int location_label=0x7f050008;
         public static final int near_you=0x7f050004;
         public static final int sort_distance=0x7f050013;

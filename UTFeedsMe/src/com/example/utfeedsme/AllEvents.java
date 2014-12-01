@@ -1,10 +1,5 @@
 package com.example.utfeedsme;
 
-/*
- * Database code derived from Lars Vogel
- * http://www.vogella.com/tutorials/AndroidSQLite/article.html
- */
-
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.util.Log;

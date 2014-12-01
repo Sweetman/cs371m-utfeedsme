@@ -23,6 +23,7 @@
     <string name="sort_distance">Distance</string>
     <string name="sort_location">Location</string>
     <string name="sort_type">Type of food</string>
+    <string name="develop">Developed by: </string>
     <string name="james">James Sweetman</string>
     <string name="daniel">Daniel Haas</string>
     <string name="andre">Andre Peng</string>

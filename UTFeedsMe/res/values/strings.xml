@@ -13,8 +13,22 @@
     <string name="cuisine_label">Cuisine</string>
     <string name="event_name_hint">Event Name?</string>
     <string name="event_where_hint">Where?</string>
-    <string name="event_time_hint">Time?</string>
+    <string name="event_start_time_hint">Start Time?</string>
+    <string name="event_end_time_hint">End Time?</string>
+    <string name="event_date_hint">Date?</string>
     <string name="event_food_hint">Food?</string>
     <string name="add_event_btn_text">Add Event</string>
+    <string name="desc">Icon</string>
+    <string name="sort_string">Sort By</string>
+    <string name="sort_start_time">Starting time</string>
+    <string name="sort_end_time">Ending time</string>
+    <string name="sort_distance">Distance</string>
+    <string name="sort_location">Location</string>
+    <string name="sort_type">Type of food</string>
+    <string name="develop">Developed by: </string>
+    <string name="james">James Sweetman</string>
+    <string name="daniel">Daniel Haas</string>
+    <string name="andre">Andre Peng</string>
+    <string name="toggle">Toggle View</string>
 
 </resources>

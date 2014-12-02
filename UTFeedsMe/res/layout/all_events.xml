@@ -1,59 +1,34 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" 
-    android:background="#FFFFFF">
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
+    android:background="#BF5700">
         
 	    <TextView
 	        android:id="@+id/name"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
-	        android:text="@string/app_name"
-	        android:textSize="20sp"
+	        android:text="@string/all_events"
+	        android:textSize="30sp"
 	        android:layout_gravity="center"
 	        android:gravity="center"/>
 	    
-	    <TextView
-	        android:id="@+id/duration"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/name"
-	        android:text="@string/duration_label"
-	        android:textSize="15sp"
-	        android:layout_gravity="left"
-	        android:gravity="left"/>
-	    
-	    <TextView
-	        android:id="@+id/location"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/name"
-	        android:text="@string/location_label"
-	        android:textSize="15sp"
-	        android:layout_gravity="center"
-	        android:gravity="center"/>
-	    
-	    <TextView
-	        android:id="@+id/cuisine"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/name"
-	        android:text="@string/cuisine_label"
-	        android:textSize="15sp"
-	        android:layout_gravity="right"
-	        android:gravity="right"/>
-	    
-	    <ListView
-	        android:id="@android:id/list"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/location"
-	        android:text="@string/hello_world" />
-	    
-	    </RelativeLayout>
+     <!--<Button
+        android:id="@+id/toggleButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/toggle" />
+        From ListView:
+        android:layout_above="@id/toggleButton"
+        android:layout_alignParentTop="true"
+        -->
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_below="@id/name"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
     
-</LinearLayout>
+</RelativeLayout>

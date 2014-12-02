@@ -13,8 +13,7 @@ import com.parse.ParseQueryAdapter;
 
 public class AllEvents extends Activity {
 
-    private ParseQueryAdapter<ParseObject> mainAdapter;
-    private CustomAdapter urgentTodosAdapter;
+    private CustomAdapter eventAdapter;
     private ListView listView;
 
     @Override
@@ -22,21 +21,15 @@ public class AllEvents extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.all_events);
 
-        // Initialize main ParseQueryAdapter
-        mainAdapter = new ParseQueryAdapter<ParseObject>(this, "FoodEvent");
-        mainAdapter.setTextKey("event");
-        mainAdapter.setImageKey("Image");
-
         // Initialize the subclass of ParseQueryAdapter
-        urgentTodosAdapter = new CustomAdapter(this);
+        eventAdapter = new CustomAdapter(this);
 
         // Initialize ListView and set initial view to mainAdapter
         listView = (ListView) findViewById(R.id.list);
-        listView.setAdapter(mainAdapter);
-        mainAdapter.loadObjects();
 
-        listView.setAdapter(urgentTodosAdapter);
-        urgentTodosAdapter.loadObjects();
+
+        listView.setAdapter(eventAdapter);
+        eventAdapter.loadObjects();
         
         
         // Initialize toggle button

@@ -1,96 +1,56 @@
 package com.example.utfeedsme;
 
-import android.app.ListActivity;
+import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ListView;
 
+import com.parse.Parse;
 import com.parse.ParseObject;
-import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 
-public class AllEvents extends ListActivity {
-	
-	private final static String TAG = "AllEvents";
-	
-	//private static final int DIALOG_SORT = 0;
-	protected RecordsDataSource dataSource;
-	
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.all_events);
-		
-		 ParseQueryAdapter.QueryFactory<ParseObject> factory =
-			     new ParseQueryAdapter.QueryFactory<ParseObject>() {
-			       public ParseQuery<ParseObject> create() {
-			         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("FoodEvent");
-			         query.orderByAscending("event");
-			         return query;
-			       }
-			     };
+public class AllEvents extends Activity {
 
-		ParseQueryAdapter<ParseObject> mainAdapter = new ParseQueryAdapter<ParseObject>(this, factory);
-		mainAdapter.setTextKey("event");
-		setListAdapter(mainAdapter);
-		
-	}
-	
-	@Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-        	Log.d(TAG, "selected settings");
-            return true;
-        }
-        if (id == R.id.sort_pref) {
-        	Log.d(TAG, "selected to sort");
-        	//showDialog(DIALOG_SORT);
-        	return true;
-        }
-        return super.onOptionsItemSelected(item);
+    private ParseQueryAdapter<ParseObject> mainAdapter;
+    private CustomAdapter urgentTodosAdapter;
+    private ListView listView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.all_events);
+
+        // Initialize main ParseQueryAdapter
+        mainAdapter = new ParseQueryAdapter<ParseObject>(this, "FoodEvent");
+        mainAdapter.setTextKey("event");
+        mainAdapter.setImageKey("Image");
+
+        // Initialize the subclass of ParseQueryAdapter
+        urgentTodosAdapter = new CustomAdapter(this);
+
+        // Initialize ListView and set initial view to mainAdapter
+        listView = (ListView) findViewById(R.id.list);
+        listView.setAdapter(mainAdapter);
+        mainAdapter.loadObjects();
+
+        // Initialize toggle button
+        Button toggleButton = (Button) findViewById(R.id.toggleButton);
+        toggleButton.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                if (listView.getAdapter() == mainAdapter) {
+                    listView.setAdapter(urgentTodosAdapter);
+                    urgentTodosAdapter.loadObjects();
+                } else {
+                    listView.setAdapter(mainAdapter);
+                    mainAdapter.loadObjects();
+                }
+            }
+
+        });
     }
-/*	
-	protected Dialog onCreateDialog(int id) {
-		
-		Log.d(TAG, "In onCreateDialog");
-		
-		Dialog dialog = null;
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-		switch(id) {
-		case DIALOG_SORT:
-
-			builder.setTitle(R.string.sort_string);
-
-			final CharSequence[] sortPrefs = {
-					getResources().getString(R.string.sort_start_time),
-					getResources().getString(R.string.sort_end_time), 
-					getResources().getString(R.string.sort_distance),
-					getResources().getString(R.string.sort_location),
-					getResources().getString(R.string.sort_type)};
-
-			builder.setSingleChoiceItems(sortPrefs, selected, 
-					new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog, int item) {
-					dialog.dismiss();   // Close dialog
-
-					mGame.setDifficultyLevel(TicTacToeGame.DifficultyLevel.values()[item]);
-					Log.d(TAG, "Difficulty level: " + mGame.getDifficultyLevel());
-
-					// Display the selected difficulty level
-					Toast.makeText(getApplicationContext(), levels[item], 
-							Toast.LENGTH_SHORT).show();        	    
-				}
-			});
-			
-			dialog = builder.create();
-			break;    // this case
-
-		}
-	}
-*/	
 }

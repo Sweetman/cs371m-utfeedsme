@@ -93,7 +93,8 @@ public class AddEvent extends FragmentActivity {
 				ParseObject gameScore = new ParseObject("FoodEvent");
 				gameScore.put("event", event_name.getText().toString());
 				gameScore.put("start_time", event_start_time.getText().toString());
-				//gameScore.put("end_time", event_end_time.getText().toString());
+				gameScore.put("end_time", event_end_time.getText().toString());
+				gameScore.put("date", event_date.getText().toString());
 				gameScore.put("where", event_where.getText().toString());
 				gameScore.put("food", event_food.getText().toString());
 				gameScore.saveInBackground();

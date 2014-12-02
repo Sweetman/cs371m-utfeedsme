@@ -29,5 +29,6 @@
     <string name="james">James Sweetman</string>
     <string name="daniel">Daniel Haas</string>
     <string name="andre">Andre Peng</string>
+    <string name="toggle">Toggle View</string>
 
 </resources>

@@ -25,7 +25,7 @@
         android:id="@+id/list"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_above="@id/toggleButton"
-        android:layout_alignParentTop="true" />
+        android:layout_above="@+id/toggleButton"
+        android:layout_below="@+id/name"/>
     
 </RelativeLayout>

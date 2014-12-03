@@ -29,8 +29,6 @@ public class StartScreen extends Activity {
         ParseObject testObject = new ParseObject("TestObject");
         testObject.put("foo", "bar");
         testObject.saveInBackground();
-        //dataSource = new RecordsDataSource(this);
-        //dataSource.open();
         
         happening_now_btn = (ImageButton) findViewById(R.id.happening_now);
         near_you_btn = (ImageButton) findViewById(R.id.near_you);
@@ -61,7 +59,7 @@ public class StartScreen extends Activity {
         add_event_btn.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				Intent openAddEvent = new Intent("com.example.utfeedsme.ADDEVENT");
-				Log.v(TAG, "yoooo we pressed the add event button");
+				//Log.v(TAG, "yoooo we pressed the add event button");
 				startActivity(openAddEvent);
 			}
 		});

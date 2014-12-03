@@ -1,12 +1,16 @@
 package com.example.utfeedsme;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.text.format.DateFormat;
 import android.util.Log;
@@ -17,6 +21,7 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 
 import com.parse.ParseObject;
+import com.google.android.gms.maps.*;
 //import android.widget.TextView;
 
 public class AddEvent extends FragmentActivity {
@@ -26,6 +31,11 @@ public class AddEvent extends FragmentActivity {
 	private static String mDate;
 	private static String mStartTime;
 	private static String mEndTime;
+	//private static String mDate;
+	private static String mStartTimeValue;
+	private static String mEndTimeValue;
+	
+	public enum Month {Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sept, Oct, Nov, Dec};
 
 	// private final int MINS_PER_DAY = 1440;
 	// protected RecordsDataSource dataSource;
@@ -36,7 +46,7 @@ public class AddEvent extends FragmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		Log.v("addevent", "entered oncreate for addevent");
-		Log.d(TAG, "alsjdlahsdjvhasjhgas");
+		//Log.d(TAG, "alsjdlahsdjvhasjhgas");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add_event);
 		
@@ -74,11 +84,14 @@ public class AddEvent extends FragmentActivity {
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				DialogFragment newFragment = new DatePickerFragment();
 				newFragment.show(getSupportFragmentManager(), "datePicker");
 			}
 		});
+		
+		GoogleMap map = ((MapFragment) getFragmentManager()
+                .findFragmentById(R.id.map)).getMap();
+		map.setMyLocationEnabled(true);
 
 		add_event.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -92,13 +105,14 @@ public class AddEvent extends FragmentActivity {
 				*/		
 				ParseObject gameScore = new ParseObject("FoodEvent");
 				gameScore.put("event", event_name.getText().toString());
-				gameScore.put("start_time", event_start_time.getText().toString());
-				gameScore.put("end_time", event_end_time.getText().toString());
+				
+				gameScore.put("start_time", mStartTimeValue);
+				gameScore.put("end_time", mEndTimeValue);
 				gameScore.put("date", event_date.getText().toString());
 				gameScore.put("where", event_where.getText().toString());
 				gameScore.put("food", event_food.getText().toString());
+
 				gameScore.saveInBackground();
-				
 				
 			}
 		});
@@ -129,20 +143,33 @@ public class AddEvent extends FragmentActivity {
 					DateFormat.is24HourFormat(getActivity()));
 		}
 		public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-			//change text to hour..
-			//see what calls this
+		
 			// Do something with the time chosen by the user
 			Log.d(TAG, "in onTimeSet");
+			
+			int adjustedHour = (hourOfDay > 12) ? (hourOfDay - 12) : hourOfDay;
+			  if (hourOfDay == 0) { // 12:00 am
+				  adjustedHour = 12;
+			  }
+			String minRep = (minute < 10) ? "0" + minute : Integer.toString(minute);  
+			String amPm = (hourOfDay < 12) ? "AM" : "PM";  
+			
+			
 			if (buttonId == 0) {
 				Button startButton = (Button) findViewById(R.id.add_event_start_time);
-				mStartTime = new StringBuilder().append(String.valueOf(hourOfDay))
-				.append(":").append(String.valueOf(minute)).toString();
+				mStartTimeValue = new StringBuilder().append(String.valueOf(hourOfDay))
+						.append(":").append(minRep).toString();
+				Log.d(TAG, mStartTimeValue);
+				mStartTime = new StringBuilder().append(String.valueOf(adjustedHour))
+				.append(":").append(minRep + " ").append(amPm).toString();
 				startButton.setText(mStartTime);
 			}
 			else {
 				Button endButton = (Button) findViewById(R.id.add_event_end_time);
-				mEndTime = new StringBuilder().append(String.valueOf(hourOfDay))
-				.append(":").append(String.valueOf(minute)).toString();
+				mEndTimeValue = new StringBuilder().append(String.valueOf(hourOfDay))
+						.append(":").append(minRep).toString();
+				mEndTime = new StringBuilder().append(String.valueOf(adjustedHour))
+				.append(":").append(minRep + " ").append(amPm).toString();
 				endButton.setText(mEndTime);
 			}
 		}
@@ -170,8 +197,48 @@ public class AddEvent extends FragmentActivity {
 		public void onDateSet(DatePicker view, int year, int month, int day) {
 			// Do something with the date chosen by the user
 			Button dateButton = (Button) findViewById(R.id.add_event_date);
-			mDate = new StringBuilder().append(String.valueOf(month))
-					.append(" ").append(String.valueOf(day)).append(", ").append(String.valueOf(year)).toString();
+			Month mMonth = Month.Jan;
+			switch(month) {
+				case 0:
+					mMonth = Month.Jan;
+					break;
+				case 1:
+					mMonth = Month.Feb;
+					break;
+				case 2:
+					mMonth = Month.Mar;
+					break;
+				case 3:
+					mMonth = Month.Apr;
+					break;
+				case 4:
+					mMonth = Month.May;
+					break;
+				case 5:
+					mMonth = Month.Jun;
+					break;
+				case 6:
+					mMonth = Month.Jul;
+					break;
+				case 7:
+					mMonth = Month.Aug;
+					break;
+				case 8:
+					mMonth = Month.Sept;
+					break;
+				case 9:
+					mMonth = Month.Oct;
+					break;
+				case 10:
+					mMonth = Month.Nov;
+					break;
+				case 11:
+					mMonth = Month.Dec;
+					break;
+			}
+			String dayRep = (day < 10) ? "0" + day : Integer.toString(day);
+			mDate = new StringBuilder().append(mMonth)
+					.append(" ").append(dayRep).append(", ").append(String.valueOf(year)).toString();
 			dateButton.setText(mDate);
 		}
 		

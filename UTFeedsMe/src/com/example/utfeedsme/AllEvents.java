@@ -30,42 +30,9 @@ public class AllEvents extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.all_events);
-        
-        ParseQuery<ParseObject> q = ParseQuery.getQuery("FoodEvent");
-        
-        // get rid of outdated events
-        Date d = new Date();
-        SimpleDateFormat f = new SimpleDateFormat("HH:mm");
-        q.whereLessThan("end_time", f.format(d));
-     
-        q.findInBackground(new FindCallback<ParseObject>() {
-        	public void done(List<ParseObject> objects, ParseException e) {
-        		if (e == null) {
-        			Log.d(TAG, "size: " + objects.size());
-        			ParseObject.deleteAllInBackground(objects);
-        		}
-        		else {
-        			e.printStackTrace();
-        		}
-        	}
-        });
-        
-        /*
-        q.countInBackground(new CountCallback() {
-        	public void done(int count, ParseException e) {
-        		if (e == null) {
-        			Log.d(TAG, "counted " + count + " items");
-        		}
-        		else {
-        			e.printStackTrace();
-        		}
-        	}
-        });
-*/
-        // Initialize the subclass of ParseQueryAdapter
+
         urgentTodosAdapter = new CustomAdapter(this, CustomAdapter.ContextType.ALL_EVENTS);
 
-        // Initialize ListView and set initial view to mainAdapter
         listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(urgentTodosAdapter);
     }

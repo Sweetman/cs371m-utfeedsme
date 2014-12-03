@@ -89,10 +89,7 @@ public class AddEvent extends FragmentActivity {
 			}
 		});
 		
-		GoogleMap map = ((MapFragment) getFragmentManager()
-                .findFragmentById(R.id.map)).getMap();
-		map.setMyLocationEnabled(true);
-
+		
 		add_event.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {

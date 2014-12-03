@@ -14,17 +14,6 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 
-/*
- * ParseObject gameScore = new ParseObject("FoodEvent");
-				gameScore.put("event", event_name.getText().toString());
-				gameScore.put("start_time", event_start_time.getText().toString());
-				gameScore.put("end_time", event_end_time.getText().toString());
-				gameScore.put("date", event_date.getText().toString());
-				gameScore.put("where", event_where.getText().toString());
-				gameScore.put("food", event_food.getText().toString());
-				gameScore.saveInBackground();
- */
-
 public class CustomAdapter extends ParseQueryAdapter<ParseObject> {
 	
 	private static final String TAG = "CustomAdapter";
@@ -39,15 +28,6 @@ public class CustomAdapter extends ParseQueryAdapter<ParseObject> {
                 ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("FoodEvent");
                 switch (c) {
                 	case HAPPENING_NOW:
-                		SimpleDateFormat f = new SimpleDateFormat("MMM dd, yyyy");
-                		Date d = new Date();
-                        String rep = f.format(d);
-                      //  Log.d(TAG, rep);
-                        query.whereEqualTo("date", rep);
-                        SimpleDateFormat t = new SimpleDateFormat("HH:mm");
-                        query.whereLessThanOrEqualTo("start_time", t.format(d));
-                        Log.d(TAG, t.format(d));
-                        query.whereGreaterThanOrEqualTo("end_time", t.format(d));
                 		break;
                 	case NEAR_YOU:
                 		
@@ -59,25 +39,7 @@ public class CustomAdapter extends ParseQueryAdapter<ParseObject> {
                 }	
         });
     }
-/*    
-    public void deleteItems() {
-    	ParseQuery<ParseObject> query = ParseQuery.getQuery("FoodEvent");
-    	query.findInBackground(new FindCallback<ParseObject>() {
-		     public void done(List<ParseObject> objects, ParseException e) {
-		         if (e == null) {
-			        	 try {
-			        		 ParseObject.deleteAll(objects);
-			        	 }
-			        	 catch (ParseException ex) {
-			        		 ex.printStackTrace();
-			        	 }
-			         } else {
-			             e.printStackTrace();
-			         }
-			     }
-			 });
-    }
-*/    
+
 
     // Customize the layout by overriding getItemView
     @Override
@@ -88,17 +50,6 @@ public class CustomAdapter extends ParseQueryAdapter<ParseObject> {
 
         super.getItemView(object, v, parent);
 
-        /*
-        // Add and download the image
-        ParseImageView todoImage = (ParseImageView) v.findViewById(R.id.icon);
-        ParseFile imageFile = object.getParseFile("Image");
-        if (imageFile != null) {
-            todoImage.setParseFile(imageFile);
-            todoImage.loadInBackground();
-        }
-		*/
-
-        // Add the title view
         TextView foodTextView = (TextView) v.findViewById(R.id.food);
         foodTextView.setText("Food: " + object.getString("food"));
         
@@ -106,13 +57,6 @@ public class CustomAdapter extends ParseQueryAdapter<ParseObject> {
         locationTextView.setText("Location: " + object.getString("where"));
         
         TextView dateTextView = (TextView) v.findViewById(R.id.date);
-        /*
-        Date d = object.getDate("date");
-        if (d == null) {
-        	Log.d(TAG, "jeez...");
-        }
-        SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy");
-        */
         
         dateTextView.setText("Date: " + object.getString("date"));
         

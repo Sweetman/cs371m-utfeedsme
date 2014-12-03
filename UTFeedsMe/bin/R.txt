@@ -104,11 +104,8 @@ int drawable pressed 0x7f020029
 int id action_settings 0x7f070032
 int id add_event 0x7f07001b
 int id add_event_btn 0x7f070023
-int id add_event_date 0x7f07001f
-int id add_event_end_time 0x7f070021
 int id add_event_food 0x7f070022
 int id add_event_name 0x7f07001d
-int id add_event_start_time 0x7f070020
 int id add_event_where 0x7f07001e
 int id add_text 0x7f07001c
 int id all_events 0x7f070019
@@ -123,7 +120,9 @@ int id classic 0x7f070011
 int id created 0x7f070028
 int id daniel 0x7f07002a
 int id date 0x7f07002f
+int id dp 0x7f07001f
 int id end_time 0x7f070031
+int id etp 0x7f070021
 int id food 0x7f07002d
 int id grayscale 0x7f070012
 int id happening_now 0x7f070015
@@ -149,6 +148,7 @@ int id satellite 0x7f070002
 int id selectionDetails 0x7f07000b
 int id sort_pref 0x7f070033
 int id start_time 0x7f070030
+int id stp 0x7f070020
 int id strict_sandbox 0x7f070009
 int id terrain 0x7f070003
 int id toggleButton 0x7f070024

@@ -421,11 +421,8 @@ containing a value of this type.
         public static final int action_settings=0x7f070032;
         public static final int add_event=0x7f07001b;
         public static final int add_event_btn=0x7f070023;
-        public static final int add_event_date=0x7f07001f;
-        public static final int add_event_end_time=0x7f070021;
         public static final int add_event_food=0x7f070022;
         public static final int add_event_name=0x7f07001d;
-        public static final int add_event_start_time=0x7f070020;
         public static final int add_event_where=0x7f07001e;
         public static final int add_text=0x7f07001c;
         public static final int all_events=0x7f070019;
@@ -440,7 +437,9 @@ containing a value of this type.
         public static final int created=0x7f070028;
         public static final int daniel=0x7f07002a;
         public static final int date=0x7f07002f;
+        public static final int dp=0x7f07001f;
         public static final int end_time=0x7f070031;
+        public static final int etp=0x7f070021;
         public static final int food=0x7f07002d;
         public static final int grayscale=0x7f070012;
         public static final int happening_now=0x7f070015;
@@ -466,6 +465,7 @@ containing a value of this type.
         public static final int selectionDetails=0x7f07000b;
         public static final int sort_pref=0x7f070033;
         public static final int start_time=0x7f070030;
+        public static final int stp=0x7f070020;
         public static final int strict_sandbox=0x7f070009;
         public static final int terrain=0x7f070003;
         public static final int toggleButton=0x7f070024;
